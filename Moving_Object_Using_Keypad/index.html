@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arrow Key Moving Object</title>
+</head>
+<body>
+
+</body>
+
+    <script>
+        let canvas = document.createElement("canvas");
+        b = canvas.getContext("2d");
+
+        canvas.width = 400;
+        canvas.height = 400;
+
+        document.body.appendChild(canvas);
+
+        b.fillStyle = "black";
+        b.fillRect(0,0,canvas.width,canvas.height);
+
+        let posX = 200;
+        posY = 200;
+        dx = 0;
+        dy = 0;
+
+        setInterval (function(){
+        b.fillStyle = "black";
+        b.fillRect(0,0,canvas.width,canvas.height);
+            posX +=dx;
+            posY +=dy;
+
+            if(posX > 390) {
+                dx = -1;
+                posX = 390;
+            }
+           
+            if(posX < 0) {
+                dx = 1;
+                posX = 0;
+            }
+          
+            if(posY > 390) {
+                dy = -1;
+                posY = 390;
+            }
+          
+            if(posY < 0) {
+                dy = 1;
+                posY = 0;
+            }
+
+        b.fillStyle = "red";
+        b.fillRect(posX,posY,10,10);
+        },10)
+
+        window.addEventListener("keydown",press001,true);
+        function press001(event){
+            switch(event.keyCode){
+                case 100://left 4
+                dx=-1;
+                dy=0;
+                break;
+                
+                case 104://up 8
+                dx=0;
+                dy=-1;
+                break;
+
+                case 102://right 6
+                dx=1;
+                dy=0;
+                break;
+
+              
+                case 98://down 2
+                dx=0;
+                dy=1;
+                break;
+
+                case 32://Stop-Space key or numberpad 0
+                dx=0;
+                dy=0;
+                break;
+              
+                case 101://Stop-Space key or numberpad 0
+                dx=0;
+                dy=0;
+                break;
+               
+                case 103://left-up 77
+                dx=-1;
+                dy=-1;
+                break;
+
+                case 105://right-up 9
+                dx=1;
+                dy=-1;
+                break;
+
+                case 97://left-down 1
+                dx=-1;
+                dy=1;
+                break;
+
+                case 99://right-down 3
+                dx=1;
+                dy=1;
+                break;
+               
+                case 8://reload Backspace
+                location.reload();
+                break;
+            }
+        }
+
+
+
+    </script>
+</html>
